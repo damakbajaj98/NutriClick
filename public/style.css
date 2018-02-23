@@ -1,0 +1,25 @@
+
+    body{
+        font-family: 'Nunito', sans-serif;
+      }
+  
+      .containerMine{
+  
+        height: 100vh;
+        background:
+        linear-gradient(
+          rgba(74,74,74,0.6),
+          rgba(0,0,0,0.6)
+          );
+        z-index: -1;
+        background-size: cover;
+        background-repeat:   no-repeat;
+      background-position: center center;
+      }
+      .card{
+        margin-top: 20em;
+        z-index: 2;
+  
+  
+      }
+  

@@ -8,8 +8,8 @@ const app = new Clarifai.App({
  apiKey: 'b03ed84e3ff9469d8746ac2260d6e5fc'
 });
 
-function predict(photo){
-app.models.predict('dsc',[photo]).then(
+function predict(photo,callback){
+app.models.predict('dsc',{base64:photo}).then(
   function(response) {
     console.log('hey');
     var result=response.outputs[0].data.concepts;
@@ -23,7 +23,7 @@ app.models.predict('dsc',[photo]).then(
       }
     }
     console.log(arr);
-    database.detect(arr);
+    database.detect(arr,callback);
   },
   function(err) {
     console.log('hi');
