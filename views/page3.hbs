@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <title></title>
+    <style>
+      /* .box1{
+        height: 80vh;
+        width:80vw;
+        border: 2px black solid;
+        margin: 10vh 10vw 10vh 10vw;
+        box-shadow: 10px 10px 50px black;
+
+      } */
+      .row{
+        height: 100vh;
+      }
+      .daymeal{
+        height:50%;
+        padding: 0px;
+        box-sizing: border-box;
+        position: relative;
+      }
+      .row .daymeal{
+        padding:0px;
+      }
+      .overlay{
+        position: absolute;
+        background-color: black;
+        opacity: 0.4;
+        top:0px;
+        left:0px;
+        width: 100%;
+        height: 100%;
+        color: white;
+        font-size:80px;
+        font-family: 'Bellefair', serif;
+      }
+      .overlay:hover{
+        opacity: 0.7
+      }
+      .meal{
+        height:100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='container-fluid box1'>
+      <div class='row'>
+        <div class='col s12 m6 daymeal'>
+            <img class='responsive-image meal' src='sources/breakfast3.jpeg' >
+            <div class='overlay breakfast'>Breakfast</div>
+        </div>
+        <div class='col s12 m6 daymeal'>
+            <img class='responsive-image meal' src='sources/lunch.jpeg' >
+            <div class='overlay lunch'>Lunch</div>
+        </div>
+        <div class='col s12 m6 daymeal'>
+            <img class='responsive-image meal' src='sources/snacks.jpeg' >
+            <div class='overlay snacks'>Snacks</div>
+        </div>
+        <div class='col s12 m6 daymeal'>
+            <img class='responsive-image meal' src='sources/dinner.jpeg' >
+            <div class='overlay dinner'>Dinner</div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script src="page3.js"></script>
+</html>
