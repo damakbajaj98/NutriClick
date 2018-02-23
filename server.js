@@ -47,7 +47,7 @@ app.get('/shuruKro', function(req,res,next){
   console.log('in get');
   database.getUser(function(us){
     console.log(us);
-    res.render('page2',{data:us});
+    res.render('page2',{data:us,percentage:(us.calNow/us.totalCal)*100});
   });
 
 })
@@ -70,10 +70,10 @@ app.post('/shuruKro',function(req,res){
   else{
   totalCal=665.1+ (9.6*formData.wei)+(1.9*formData.hei)-(4.7*formData.ag);
   }
-if(opti==1){
+if(formData.opti==1){
   totalCal=totalCal-500;
 }
-else if(opti==2){
+else if(formData.opti==2){
   totalCal=totalCal+500;
 }
 
