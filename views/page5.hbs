@@ -32,6 +32,9 @@ background-position: center center;
 
 
 }
+.btn{
+  margin-bottom: 15px;
+}
 
 </style>
     <title></title>
@@ -43,6 +46,7 @@ background-position: center center;
         <div class="col s12 m10 l8">
           <!-- card comes here -->
           <div class="card">
+            <div class="card-title">Enter quantity of each item </div>
             <div class="card-content">
               <ul>
 
@@ -53,8 +57,11 @@ background-position: center center;
               {{/each}}
             </ul>
             </div>
-
-  <button id="btn">SUBMIT</button>
+            <center>
+            <button class="btn waves-effect waves-light" id="btn">Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </center>
 </div>
 </div>
 </div>
