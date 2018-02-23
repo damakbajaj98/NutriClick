@@ -37,6 +37,8 @@ mongoose.connect('mongodb://damak:password@ds239368.mlab.com:39368/projectdb',fu
 function detect(item,callback){
   console.log('in detect');
   var arr2=[];
+  if(item.length==0)
+    addFoodToUser(arr2,callback);
   for(var i=0;i<item.length;i++){
     food.find({'name': item[i]},function (err,result) {
       if (err) throw err;
