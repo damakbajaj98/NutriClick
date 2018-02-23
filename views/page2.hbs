@@ -73,7 +73,7 @@
     color: #48b2c1;
     }
     .donut-chart.chart2 .chart-center span:after {
-    content:`${{data.name}}`;
+    content: "{{percentage}}""%";
     }
 
     </style>
@@ -98,6 +98,8 @@
     User:{{data.name}}
     <br>
     Total Calories:{{data.totalCal}}
+    <br>
+    {{percentage}}
     <br>
     Calories Consumed Till now:{{data.calNow}}
     <ul>

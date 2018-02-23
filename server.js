@@ -47,7 +47,7 @@ app.get('/shuruKro', function(req,res,next){
   console.log('in get');
   database.getUser(function(us){
     console.log(us);
-    res.render('page2',{data:us});
+    res.render('page2',{data:us,percentage:(us.calNow/us.totalCal)*100});
   });
 
 })
