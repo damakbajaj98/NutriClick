@@ -9,7 +9,7 @@ const app = new Clarifai.App({
 });
 
 function predict(photo,callback){
-app.models.predict('dsc',[photo]).then(
+app.models.predict('dsc',{base64:photo}).then(
   function(response) {
     console.log('hey');
     var result=response.outputs[0].data.concepts;

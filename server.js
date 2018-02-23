@@ -4,7 +4,7 @@ const hbs = require('hbs');
 const app = express();
 const multer = require('multer');
 const predict = require('./predict_photo.js')
-
+var fs = require('fs');
 const database = require('./database.js')
 
 
@@ -87,11 +87,13 @@ app.get('/add', function (req, res) {
 
 app.post('/upload', multer(multerConf).single('myImage'), function (req, res) {
   console.log(req.file);
-  var imgurl = "https://www.foodfitnessbeautyandmore.com/wp-content/uploads/2017/03/brown-rice-dosa-chatni-sambar-aloo.jpg"
-  predict.predict(imgurl, function (data) {
+    var base64String = new Buffer(fs.readFileSync(req.file.path)).toString('base64');
+    // var imageUrl='data:'+req.file.mimetype+';base64,'+base64String;    
+    // fs.writeFileSync('main.txt',imageUrl)
+   predict.predict(base64String, function (data) {
     console.log(data);
     res.redirect('/shuruKro');
-  });
+   });
 }
 );
 
