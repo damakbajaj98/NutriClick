@@ -59,9 +59,9 @@ function detect(item,callback){
 function addFoodToUser(khaana,callback){
   user.find({'name': 'admin'},function (err,userr) {
     if (err) throw err;
-
-
     var arr=userr[0].kyaKhaya;
+    for(var i=0;i<khaana.length;i++)
+      arr.push(khaana[i]);
     console.log(arr);
     user.update( {'name':'admin'},{$set:{ kyaKhaya: arr }} , function(err,userFin){
       console.log(userFin);
@@ -90,7 +90,7 @@ function updateQuantity(quanArray,cb){
       var len2=quanArray.length;
       for(var i=0;i<len2;i++){
          kyaKhaya[len1-1-i].quantity=quanArray[len2-1-i].quantity;
-         calCnt+=kyaKhaya[len1-1-i].calories;
+         calCnt=calCnt+(kyaKhaya[len1-1-i].calories*kyaKhaya[len1-1-i].quantity);
        }
        user.update( {'name':'admin'},{$set:{ 'kyaKhaya': kyaKhaya ,calNow:calCnt}} , function(err,userFin){
          if(err) throw err;
