@@ -64,16 +64,19 @@ app.post('/shuruKro',function(req,res){
   var formData=req.body;
   // console.log(formData);
   var totalCal=0;
-  var Cal={};
   if(formData.gen=="male"){
     totalCal=66.5+ (13.8*formData.wei)+(5*formData.hei)-(6.75*formData.ag);
   }
   else{
   totalCal=665.1+ (9.6*formData.wei)+(1.9*formData.hei)-(4.7*formData.ag);
   }
+if(opti==1){
+  totalCal=totalCal-500;
+}
+else if(opti==2){
+  totalCal=totalCal+500;
+}
 
-
-  Cal.totalCal=totalCal;
   // console.log(Cal);
   database.addTotalCalToUser(totalCal,function(err){
     if(err) throw err;
