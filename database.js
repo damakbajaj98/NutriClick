@@ -34,7 +34,7 @@ mongoose.connect('mongodb://damak:password@ds239368.mlab.com:39368/projectdb',fu
 
 
 
-function detect(item){
+function detect(item,callback){
   console.log('in detect');
   var arr2=[];
   for(var i=0;i<item.length;i++){
@@ -43,7 +43,7 @@ function detect(item){
       console.log(result);
       arr2.push(result[0]);
       if(arr2.length==item.length)
-        addFoodToUser(arr2);
+        addFoodToUser(arr2,callback);
 
     })
 
@@ -53,7 +53,7 @@ function detect(item){
 
 
 
-function addFoodToUser(khaana){
+function addFoodToUser(khaana,callback){
   user.find({'name': 'admin'},function (err,userr) {
     if (err) throw err;
     var calCnt=userr[0].calNow;
@@ -66,6 +66,7 @@ function addFoodToUser(khaana){
     console.log(arr);
     user.update( {'name':'admin'},{$set:{ kyaKhaya: arr , calNow: calCnt}} , function(err,userFin){
       console.log(userFin);
+      callback();
     });
   })
 
