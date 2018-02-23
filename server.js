@@ -89,6 +89,10 @@ app.get('/add',function(req,res){
     res.render('page4');           ///iss route pe uplaod waala html hogaaa
 })
 
+app.get('/quantity',function(req,res){
+  res.render('page5',{arr:foodArray});
+})
+var foodArray=[];
 app.post('/upload', multer(multerConf).single('myImage'), function(req,res){
 
      console.log(req.file);
@@ -96,8 +100,10 @@ app.post('/upload', multer(multerConf).single('myImage'), function(req,res){
    var bitmap = fs.readFileSync(req.file.path);
    // convert binary data to base64 encoded string
      var imgurl=new Buffer(bitmap).toString('base64');
-     predict.predict(imgurl,function(){
-       res.redirect('/shuruKro');
+     predict.predict(imgurl,function(khaana){
+       console.log('hey,',khaana);
+       foodArray=khaana;
+       res.send(200);         //pehle yahan shuru kro tha
      });
 
 

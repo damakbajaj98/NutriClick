@@ -68,7 +68,7 @@ function addFoodToUser(khaana,callback){
     console.log(arr);
     user.update( {'name':'admin'},{$set:{ kyaKhaya: arr , calNow: calCnt}} , function(err,userFin){
       console.log(userFin);
-      callback();
+      callback(khaana);
     });
   })
 

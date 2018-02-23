@@ -1,17 +1,17 @@
-  var btn= $('#btn');
-    btn1.on('click',function(){
-      console.log('hhhhhh');
-      $.ajax({
 
-        url:'/upload',
-        type: 'POST',
-        contentType: 'multipart/form-data',
-        success:function(result){
-          console.log("hogya submit what you wanna accomplish")
-          $.get({url:`/shuruKro`,success:function(res){
-              window.location=`/shuruKro`;
-          }});
-        }
-      });
-
-    });
+$('.uploadImage').submit(function(e){
+console.log('submt kia1');
+  e.preventDefault();
+  console.log('submt kia');
+  $(this).ajaxSubmit({
+    contentType: 'application/json',
+    success: function(response){
+      console.log('in ajax submit');
+      $.get({url:`/quantity`,success:function(result){
+        console.log("yayayya");
+        window.location='/quantity';
+      }})
+    }
+});
+  return false;
+});
