@@ -110,6 +110,13 @@ app.post('/upload', multer(multerConf).single('myImage'), function(req,res){
   }
 );
 
+app.post('/afterquan',function(req,res){
+  console.log('kkk');
+  database.updateQuantity(req.body.quanArray,function(){
+    console.log('bye');
+    res.sendStatus(200);
+  });
+})
 
 
 

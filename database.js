@@ -6,7 +6,8 @@ var Schema = mongoose.Schema,
 var foodSchema= new Schema({
     id   : ObjectId,
     name     : String,
-    calories     : Number
+    calories     : Number,
+    quantity: Number
 });
 
 var userSchema= new Schema({
@@ -58,15 +59,11 @@ function detect(item,callback){
 function addFoodToUser(khaana,callback){
   user.find({'name': 'admin'},function (err,userr) {
     if (err) throw err;
-    var calCnt=userr[0].calNow;
-    for(var i=0;i<khaana.length;i++){
-        userr[0].kyaKhaya.push(khaana[i]);
-        calCnt+=khaana[i].calories;
-    }
+
 
     var arr=userr[0].kyaKhaya;
     console.log(arr);
-    user.update( {'name':'admin'},{$set:{ kyaKhaya: arr , calNow: calCnt}} , function(err,userFin){
+    user.update( {'name':'admin'},{$set:{ kyaKhaya: arr }} , function(err,userFin){
       console.log(userFin);
       callback(khaana);
     });
@@ -83,6 +80,28 @@ function addTotalCalToUser(totalCal,callback){
 
 }
 
+function updateQuantity(quanArray,cb){
+    user.find( {'name':'admin'}, function(err,userr){
+      if(err) throw err;
+      var calCnt=userr[0].calNow;
+      console.log(userr);
+      var kyaKhaya=userr[0].kyaKhaya;
+      var len1=kyaKhaya.length;
+      var len2=quanArray.length;
+      for(var i=0;i<len2;i++){
+         kyaKhaya[len1-1-i].quantity=quanArray[len2-1-i].quantity;
+         calCnt+=kyaKhaya[len1-1-i].calories;
+       }
+       user.update( {'name':'admin'},{$set:{ 'kyaKhaya': kyaKhaya ,calNow:calCnt}} , function(err,userFin){
+         if(err) throw err;
+         console.log(userFin);
+         cb();
+       });
+     });
+
+  }
+
+
 function getUser(callback){
   user.find({'name': 'admin'},function (err,userr) {
     if (err) throw err;
@@ -93,7 +112,7 @@ function getUser(callback){
 
 
 module.exports={
-  connect,detect,addTotalCalToUser,getUser
+  connect,detect,addTotalCalToUser,getUser,updateQuantity
 }
 
 

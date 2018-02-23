@@ -9,9 +9,41 @@
 
     {{#each arr as |item|}}
         <li>
-          {{item.name}}
+          {{item.name}} <input type="text" id={{item.name}} >
         </li>
     {{/each}}
   </ul>
+  <button id="btn">SUBMIT</button>
   </body>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
+
+  <script>
+  var quanArr=[]
+
+  $('#btn').on('click',function(){
+    {{#each arr as |item|}}
+          var obj={
+            name:'',
+            quantity:''
+          };
+          console.log({{item.name}}.id);
+          obj.name={{item.name}}.id;
+          obj.quantity = ($("#"+{{item.name}}.id).val())-"0";
+          quanArr.push(obj);
+    {{/each}}
+    console.log(('jj'));
+    console.log(quanArr);
+    $.post('/afterquan',{'quanArray':quanArr},function(){
+      console.log('hello');
+        $.get({url:'/shuruKro',success:function(){
+          console.log("hurray");
+          window.location='/shuruKro';
+        }
+      })
+
+  })
+})
+
+  </script>
 </html>
