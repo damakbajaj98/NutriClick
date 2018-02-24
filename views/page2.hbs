@@ -35,6 +35,9 @@ body {
   border: 2px solid #2f3439;
   background-color: red;
 }
+#table{
+  width:60%;
+}
 
 /* -------------------------------------
  * Optional centered circle w/text
@@ -477,8 +480,9 @@ body {
 
 <a class="btn-floating btn-large waves-effect waves-light red" id='addFood'><i class="material-icons">add</i></a>
 <!-- <button id='addFood'>ADD</button> -->
+<center>
 
-<table class="striped">
+<table class="center striped" id="table">
       <thead>
         <tr>
             <th>Food Item</th>
@@ -499,6 +503,7 @@ body {
         {{/each}}
 
     </table>
+  </center>
 
 
 
