@@ -468,7 +468,7 @@ body {
     <div class="wrap">
 
     <div class="progress-radial progress-{{percentage}}">
-      <div class="overlay"></div>
+      <div class="overlay">{{percentage}}</div>
     </div>
 
 
@@ -481,30 +481,26 @@ body {
 <table class="striped">
       <thead>
         <tr>
-            <th>Name</th>
-            <th>Item Name</th>
-            <th>Item Price</th>
+            <th>Food Item</th>
+            <th>Calories/serving</th>
+            <th>Number of servings</th>
         </tr>
       </thead>
 
       <tbody>
+        {{#each data.kyaKhaya as |x|}}
         <tr>
-          <td>Alvin</td>
-          <td>Eclair</td>
-          <td>$0.87</td>
+          <td>{{x.name}}</td>
+          <td>{{x.calories}}</td>
+          <td>{{x.quantity}}</td>
         </tr>
-        <tr>
-          <td>Alan</td>
-          <td>Jellybean</td>
-          <td>$3.76</td>
-        </tr>
-        <tr>
-          <td>Jonathan</td>
-          <td>Lollipop</td>
-          <td>$7.00</td>
-        </tr>
-      </tbody>
+
+
+        {{/each}}
+
     </table>
+
+
 
 
 </body>
