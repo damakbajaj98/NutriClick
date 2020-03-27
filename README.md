@@ -4,6 +4,7 @@ In an effort to make tracking daily calorie
 intake easier, the webapp displays the food items and their calories consumed so far. User can add a consumed food item either by typing it
 manually or by clicking a photo. It uses Clarifai API which detects the fooditem from the image, using a model pre-trained by us.
 <br>
+<br>
 Front End: HTML, Bootstrap, Handlebars, JavaScript
 <br>
 Backend: NodeJS(ExpressJS)
