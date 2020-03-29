@@ -1,8 +1,6 @@
 # NutriClick
 
-In an effort to make tracking daily calorie
-intake easier, the webapp displays the food items and their calories consumed so far. User can add a consumed food item either by typing it
-manually or by clicking a photo. It uses Clarifai API which detects the fooditem from the image, using a model pre-trained by us.
+Created a working prototype of a website using HTML, CSS, NodeJS and MongoDB in an effort to make tracking daily calorie intake easier. User signs up/logs in and enter his/her personal details and goals. The home page displays  the food items and their calories consumed so far. User can add a consumed food item either by typing it manually or by clicking a photo. It uses Clarifai API which detects the fooditem from the image, using a model pre-trained by us. Aim was to learn and implement new frameworks like Bootstrap and expressJS
 <br>
 <br>
 Front End: HTML, Bootstrap, Handlebars, JavaScript
